@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app3-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app3
+  template:
+    metadata:
+      labels:
+        app: app3
+    spec:
+      containers:
+        - name: web3
+          image: app3:v2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+

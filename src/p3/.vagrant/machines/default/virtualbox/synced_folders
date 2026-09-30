@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/p3":{"guestpath":"/home/vagrant/p3","hostpath":"/home/knakto/advance_core/my-repo/Inception-of-thing/src/p3","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/knakto/advance_core/my-repo/Inception-of-thing/src/p3","disabled":false,"__vagrantfile":true}}}
