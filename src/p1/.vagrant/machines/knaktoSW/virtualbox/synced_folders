@@ -1,1 +1,0 @@
-{"virtualbox":{"/var/secrets":{"guestpath":"/var/secrets","hostpath":"/home/knakto/advance_core/my-repo/Inception-of-thing/src/p1/secrets","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/knakto/advance_core/my-repo/Inception-of-thing/src/p1","disabled":false,"__vagrantfile":true}}}
