@@ -22,6 +22,10 @@ Vagrant.configure("2") do |config|
   SHELL
 
   config.vm.provision "shell", name: "install-argocd", run: "once", inline: <<-SHELL
+    curl -fsSL -o /tmp/get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+    chmod 700 /tmp/get_helm.sh
+    /tmp/get_helm.sh
+
     curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/v3.5.3/argocd-linux-amd64 && chmod +x /usr/local/bin/argocd
 
     k3d cluster create -p "80:80@loadbalancer"
@@ -33,6 +37,9 @@ Vagrant.configure("2") do |config|
     kubectl wait --for=condition=established --timeout=60s crd/applications.argoproj.io
     kubectl apply -f https://raw.githubusercontent.com/knakto/Inception-of-thing/main/src/p3/kubeconfig/argoconfig/config.yml
     # You have to command "argocd app sync kustomize-app --core" by your self after application already setup
+    
+    # mkdir -p /home/vagrant/.kube
+    # k3d kubeconfig get k3s-default > /home/vagrant/.kube/config
     # use "mkdir .kube && k3d kubeconfig get k3s-default > .kube/config" to make kubectl work
     # use "kubectl config set-context --current --namespace=argocd" to change context befor run argocd command
   SHELL

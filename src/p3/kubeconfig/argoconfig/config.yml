@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kustomize-app
+  name: argocd-app
   namespace: argocd
 spec:
-  project: default
+  project: app-release
   source:
-    path: src/p3/kubeconfig/appconfig
+    path: src/p3/kubeconfig/my-app
     repoURL: 'https://github.com/knakto/Inception-of-thing.git'
     targetRevision: HEAD
   destination:
-    namespace: default
+    namespace: dev
     server: 'https://kubernetes.default.svc'
