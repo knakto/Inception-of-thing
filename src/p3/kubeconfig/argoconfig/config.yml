@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-app
+  name: my-app
   namespace: argocd
 spec:
-  project: app-release
+  project: default
   source:
     path: src/p3/kubeconfig/my-app
     repoURL: 'https://github.com/knakto/Inception-of-thing.git'
